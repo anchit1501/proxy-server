@@ -26,10 +26,7 @@ router.get("/", cache("2 minute"), async (req, res) => {
     const data = apiRes.body;
 
     // Log the request to the public API
-    if (process.env.NODE_ENV !== "production")
-      console.log(`REQUEST: ${API_BASE_URL}?${params}`);
-
-    res.status(200).json(data);
+    if (process.env.NODE_ENV !== "production") res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error });
   }
